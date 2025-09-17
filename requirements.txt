@@ -1,0 +1,9 @@
+python-dotenv==1.0.1
+requests==2.32.3
+pandas==2.2.2
+tenacity==8.5.0
+shapely==2.0.4
+geopandas==1.0.1
+pyproj==3.6.1
+typing-extensions==4.12.2
+
