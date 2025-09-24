@@ -7,12 +7,12 @@ Struttura base del progetto per il sistema di localizzazione banche e generazion
 - Installare le dipendenze: `pip install -r requirements.txt`
 - Eseguire un test locale con dati di esempio: `python scripts/run_batch.py data/debitori_input.csv data/banche_prossimita_output.csv`
 
-### Struttura cartelle
+### Struttura cartelle (semplificata)
+- `src/bank_proximity_system.py`: orchestratore principale
+- `src/data_manager.py`: I/O CSV
 - `src/models`: modelli dati (`DebtorRecord`, `BankResult`, `Enums`)
-- `src/services`: servizi core (geocoding, isolinee, ricerca banche, ranker, ottimizzatore trasporti)
-- `src/core`: orchestratore `BankProximitySystem`
-- `src/io`: gestione input/output CSV `DataManager`
-- `src/utils`: config, logging, retry
+- `src/services`: servizi (geocoding, isolinee, ricerca banche, ranker, trasporti)
+- `src/utils`: config e logging
 - `scripts`: esecuzione singola e batch
 - `data`: CSV di input/output di esempio
 - `tests`: test di base

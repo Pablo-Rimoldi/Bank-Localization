@@ -1,6 +1,6 @@
 import sys
 
-from src.core.bank_proximity_system import BankProximitySystem
+from src.bank_proximity_system import BankProximitySystem
 from src.utils.logging_setup import setup_logging
 
 

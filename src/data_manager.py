@@ -19,9 +19,12 @@ class DataManager:
             records.append(
                 DebtorRecord(
                     codice_fiscale=str(row.get("codice_fiscale", "")).strip(),
-                    indirizzo_residenza=str(row.get("indirizzo_residenza", "")).strip(),
-                    eta=int(row["eta"]) if "eta" in df.columns and pd.notna(row.get("eta")) else None,
-                    mobilita_ridotta=bool(row["mobilita_ridotta"]) if "mobilita_ridotta" in df.columns and pd.notna(row.get("mobilita_ridotta")) else None,
+                    indirizzo_residenza=str(
+                        row.get("indirizzo_residenza", "")).strip(),
+                    eta=int(row["eta"]) if "eta" in df.columns and pd.notna(
+                        row.get("eta")) else None,
+                    mobilita_ridotta=bool(row["mobilita_ridotta"]) if "mobilita_ridotta" in df.columns and pd.notna(
+                        row.get("mobilita_ridotta")) else None,
                 )
             )
         return records
@@ -50,5 +53,3 @@ class DataManager:
                 row[prefix + "tempo_min"] = ""
                 row[prefix + "trasporto"] = ""
         return row
-
-

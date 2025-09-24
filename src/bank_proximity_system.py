@@ -7,7 +7,7 @@ from src.services.transport_optimizer import TransportOptimizer
 from src.services.isoline_service import IsolineService
 from src.services.bank_search_service import BankSearchService
 from src.services.bank_ranker import BankRanker
-from src.io.data_manager import DataManager
+from src.data_manager import DataManager
 
 
 class BankProximitySystem:
@@ -28,7 +28,8 @@ class BankProximitySystem:
         # Context detection (placeholder: unknown density/elevation → defaults per rules)
         area = AreaType.URBAN  # A simple default; refine when density/elevation available
 
-        mode = self.transport.select_mode(area, debtor.eta, debtor.mobilita_ridotta)
+        mode = self.transport.select_mode(
+            area, debtor.eta, debtor.mobilita_ridotta)
         minutes = self.isoline.compute_minutes_by_context(area.value)
         polygon = self.isoline.build_isoline(lat, lon, minutes, mode)
         banks = self.search.search(polygon)
@@ -48,5 +49,3 @@ class BankProximitySystem:
             banks = self.process_debtor(d)
             rows.append(self.io.build_output_row(d, banks))
         self.io.write_results(output_csv_path, rows)
-
-
